@@ -1,0 +1,83 @@
+# Provider API configuration
+providers:
+  openai:
+    base_url: https://api.openai.com/v1
+    env_key: OPENAI_API_KEY
+    rate_limit:
+      requests_per_minute: 60
+      tokens_per_minute: 150000
+    models:
+      - gpt-4o
+      - gpt-4o-mini
+      - gpt-4.1
+      - gpt-4.1-mini
+      - gpt-4.1-nano
+      - o3
+      - o3-mini
+      - o4-mini
+
+  google:
+    base_url: https://generativelanguage.googleapis.com
+    env_key: GOOGLE_API_KEY
+    rate_limit:
+      requests_per_minute: 60
+      tokens_per_minute: 1000000
+    models:
+      - gemini-2.5-pro
+      - gemini-2.5-flash
+      - gemini-2.0-flash
+
+  anthropic:
+    base_url: https://api.anthropic.com
+    env_key: ANTHROPIC_API_KEY
+    rate_limit:
+      requests_per_minute: 50
+      tokens_per_minute: 100000
+    models:
+      - claude-opus-4
+      - claude-sonnet-4
+      - claude-haiku-3.5
+
+  meta:
+    # Meta models via Together AI (primary) or Ollama (local)
+    base_url: https://api.together.xyz/v1
+    env_key: TOGETHER_API_KEY
+    rate_limit:
+      requests_per_minute: 60
+      tokens_per_minute: 500000
+    models:
+      - llama-4-scout
+      - llama-4-maverick
+      - llama-3.3-70b
+    local_backend: ollama  # 'ollama' or 'vllm'
+    ollama_base_url: http://localhost:11434
+
+  deepseek:
+    base_url: https://api.deepseek.com/v1
+    env_key: DEEPSEEK_API_KEY
+    rate_limit:
+      requests_per_minute: 60
+      tokens_per_minute: 100000
+    models:
+      - deepseek-v3
+      - deepseek-r1
+
+  mistral:
+    base_url: https://api.mistral.ai/v1
+    env_key: MISTRAL_API_KEY
+    rate_limit:
+      requests_per_minute: 60
+      tokens_per_minute: 500000
+    models:
+      - mistral-large
+      - mistral-small
+      - codestral
+
+  mock:
+    base_url: null
+    env_key: null
+    rate_limit:
+      requests_per_minute: 10000
+      tokens_per_minute: 99999999
+    models:
+      - mock

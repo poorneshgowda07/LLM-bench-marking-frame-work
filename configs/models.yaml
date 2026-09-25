@@ -1,0 +1,613 @@
+# Model Registry — LLM Benchmarking Framework
+# All capability data is manually researched. Mark unsupported features as null.
+# Pricing in USD per 1M tokens (as of Sep 2025 — update as needed)
+
+models:
+
+  # ─── OPENAI ───────────────────────────────────────────────────────────────
+  gpt-4o:
+    provider: openai
+    display_name: GPT-4o
+    parameters: ~200B
+    context_window: 128000
+    max_output_tokens: 16384
+    multimodal:
+      vision: true
+      audio: true
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 2.50
+      output_per_1m: 10.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Knowledge cutoff April 2024
+      - No real-time internet access
+    api_model_id: gpt-4o
+
+  gpt-4o-mini:
+    provider: openai
+    display_name: GPT-4o mini
+    parameters: ~8B
+    context_window: 128000
+    max_output_tokens: 16384
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.15
+      output_per_1m: 0.60
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Smaller context understanding vs GPT-4o
+    api_model_id: gpt-4o-mini
+
+  gpt-4.1:
+    provider: openai
+    display_name: GPT-4.1
+    parameters: ~200B
+    context_window: 1000000
+    max_output_tokens: 32768
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 2.00
+      output_per_1m: 8.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Knowledge cutoff June 2025
+    api_model_id: gpt-4.1
+
+  gpt-4.1-mini:
+    provider: openai
+    display_name: GPT-4.1 mini
+    parameters: ~20B
+    context_window: 1000000
+    max_output_tokens: 32768
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.40
+      output_per_1m: 1.60
+    deployment:
+      api: true
+      local: false
+    limitations: []
+    api_model_id: gpt-4.1-mini
+
+  gpt-4.1-nano:
+    provider: openai
+    display_name: GPT-4.1 nano
+    parameters: ~4B
+    context_window: 1000000
+    max_output_tokens: 32768
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.10
+      output_per_1m: 0.40
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Lower accuracy on complex tasks
+    api_model_id: gpt-4.1-nano
+
+  o3:
+    provider: openai
+    display_name: o3
+    parameters: ~200B
+    context_window: 200000
+    max_output_tokens: 100000
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 10.00
+      output_per_1m: 40.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Slower due to extended thinking
+      - Higher cost
+    api_model_id: o3
+
+  o3-mini:
+    provider: openai
+    display_name: o3-mini
+    parameters: ~20B
+    context_window: 200000
+    max_output_tokens: 65536
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 1.10
+      output_per_1m: 4.40
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - No vision input
+    api_model_id: o3-mini
+
+  o4-mini:
+    provider: openai
+    display_name: o4-mini
+    parameters: ~30B
+    context_window: 200000
+    max_output_tokens: 100000
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 1.10
+      output_per_1m: 4.40
+    deployment:
+      api: true
+      local: false
+    limitations: []
+    api_model_id: o4-mini
+
+  # ─── GOOGLE ───────────────────────────────────────────────────────────────
+  gemini-2.5-pro:
+    provider: google
+    display_name: Gemini 2.5 Pro
+    parameters: ~1T (MoE)
+    context_window: 1000000
+    max_output_tokens: 65536
+    multimodal:
+      vision: true
+      audio: true
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 1.25
+      output_per_1m: 10.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Rate limits on free tier
+    api_model_id: gemini-2.5-pro
+
+  gemini-2.5-flash:
+    provider: google
+    display_name: Gemini 2.5 Flash
+    parameters: ~30B
+    context_window: 1000000
+    max_output_tokens: 65536
+    multimodal:
+      vision: true
+      audio: true
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.075
+      output_per_1m: 0.30
+    deployment:
+      api: true
+      local: false
+    limitations: []
+    api_model_id: gemini-2.5-flash
+
+  gemini-2.0-flash:
+    provider: google
+    display_name: Gemini 2.0 Flash
+    parameters: ~20B
+    context_window: 1000000
+    max_output_tokens: 8192
+    multimodal:
+      vision: true
+      audio: true
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.10
+      output_per_1m: 0.40
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Smaller output window vs 2.5
+    api_model_id: gemini-2.0-flash
+
+  # ─── ANTHROPIC ────────────────────────────────────────────────────────────
+  claude-opus-4:
+    provider: anthropic
+    display_name: Claude Opus 4
+    parameters: ~500B
+    context_window: 200000
+    max_output_tokens: 32000
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 15.00
+      output_per_1m: 75.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Most expensive model in suite
+      - No audio input
+    api_model_id: claude-opus-4-5
+
+  claude-sonnet-4:
+    provider: anthropic
+    display_name: Claude Sonnet 4
+    parameters: ~100B
+    context_window: 200000
+    max_output_tokens: 16000
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 3.00
+      output_per_1m: 15.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - No audio input
+    api_model_id: claude-sonnet-4-5
+
+  claude-haiku-3.5:
+    provider: anthropic
+    display_name: Claude Haiku 3.5
+    parameters: ~20B
+    context_window: 200000
+    max_output_tokens: 8192
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.80
+      output_per_1m: 4.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - Lower reasoning depth
+    api_model_id: claude-haiku-3-5
+
+  # ─── META ─────────────────────────────────────────────────────────────────
+  llama-4-scout:
+    provider: meta
+    display_name: Llama 4 Scout
+    parameters: 109B (17B active, MoE)
+    context_window: 131072
+    max_output_tokens: 8192
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.18
+      output_per_1m: 0.59
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - Requires Together AI or local Ollama for API access
+    api_model_id: meta-llama/Llama-4-Scout-17B-16E-Instruct
+
+  llama-4-maverick:
+    provider: meta
+    display_name: Llama 4 Maverick
+    parameters: 400B (17B active, MoE)
+    context_window: 131072
+    max_output_tokens: 8192
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.27
+      output_per_1m: 0.85
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - Requires Together AI or local Ollama
+    api_model_id: meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8
+
+  llama-3.3-70b:
+    provider: meta
+    display_name: Llama 3.3 70B
+    parameters: 70B
+    context_window: 131072
+    max_output_tokens: 8192
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.88
+      output_per_1m: 0.88
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - No vision/audio
+    api_model_id: meta-llama/Llama-3.3-70B-Instruct-Turbo
+
+  # ─── DEEPSEEK ─────────────────────────────────────────────────────────────
+  deepseek-v3:
+    provider: deepseek
+    display_name: DeepSeek-V3
+    parameters: 671B (37B active, MoE)
+    context_window: 128000
+    max_output_tokens: 8192
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.27
+      output_per_1m: 1.10
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - No vision/audio
+      - API may have latency from Chinese servers
+    api_model_id: deepseek-chat
+
+  deepseek-r1:
+    provider: deepseek
+    display_name: DeepSeek-R1
+    parameters: 671B (37B active, MoE)
+    context_window: 128000
+    max_output_tokens: 8192
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: false
+    json_mode: false
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.55
+      output_per_1m: 2.19
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - No function calling or JSON mode
+      - Verbose reasoning traces
+    api_model_id: deepseek-reasoner
+
+  # ─── MISTRAL ──────────────────────────────────────────────────────────────
+  mistral-large:
+    provider: mistral
+    display_name: Mistral Large 2
+    parameters: 123B
+    context_window: 131072
+    max_output_tokens: 8192
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 2.00
+      output_per_1m: 6.00
+    deployment:
+      api: true
+      local: false
+    limitations:
+      - No vision/audio
+    api_model_id: mistral-large-latest
+
+  mistral-small:
+    provider: mistral
+    display_name: Mistral Small 3.1
+    parameters: 24B
+    context_window: 131072
+    max_output_tokens: 8192
+    multimodal:
+      vision: true
+      audio: false
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: false
+    code_generation: true
+    multilingual: true
+    fine_tuning: true
+    pricing:
+      input_per_1m: 0.10
+      output_per_1m: 0.30
+    deployment:
+      api: true
+      local: true
+    limitations: []
+    api_model_id: mistral-small-latest
+
+  codestral:
+    provider: mistral
+    display_name: Codestral
+    parameters: 22B
+    context_window: 32768
+    max_output_tokens: 8192
+    multimodal:
+      vision: false
+      audio: false
+    streaming: true
+    function_calling: false
+    json_mode: false
+    reasoning_cot: false
+    code_generation: true
+    multilingual: false
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.20
+      output_per_1m: 0.60
+    deployment:
+      api: true
+      local: true
+    limitations:
+      - Code-only, not suitable for general tasks
+      - No function calling or JSON mode
+    api_model_id: codestral-latest
+
+  # ─── MOCK (for testing without API keys) ──────────────────────────────────
+  mock:
+    provider: mock
+    display_name: Mock LLM (Testing)
+    parameters: N/A
+    context_window: 999999
+    max_output_tokens: 4096
+    multimodal:
+      vision: true
+      audio: true
+    streaming: true
+    function_calling: true
+    json_mode: true
+    reasoning_cot: true
+    code_generation: true
+    multilingual: true
+    fine_tuning: false
+    pricing:
+      input_per_1m: 0.00
+      output_per_1m: 0.00
+    deployment:
+      api: false
+      local: true
+    limitations:
+      - Returns deterministic mock responses
+      - Not suitable for real evaluation
+    api_model_id: mock

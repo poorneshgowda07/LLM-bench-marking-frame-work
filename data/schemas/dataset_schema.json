@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "LLM Benchmark Dataset Sample",
+  "type": "object",
+  "required": ["id", "task_category", "task_type", "prompt", "reference", "difficulty", "language"],
+  "properties": {
+    "id": {"type": "string", "description": "Unique sample identifier"},
+    "task_category": {"type": "string", "enum": ["general_knowledge", "code_generation", "conversational", "summarization", "indian_languages", "domain_voice_ai", "adversarial"]},
+    "task_type": {"type": "string"},
+    "prompt": {"type": "string", "minLength": 10},
+    "reference": {"type": ["string", "object"]},
+    "difficulty": {"type": "string", "enum": ["easy", "medium", "hard"]},
+    "language": {"type": "string"},
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,52 @@
+# Environment
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# Results & Evidence (may contain sensitive data)
+results/raw/
+results/metrics/
+evidence/errors/
+
+# Keep leaderboards and reports in version control
+!results/leaderboards/.gitkeep
+!results/reports/.gitkeep
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb.checkpoint
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Downloaded models (BERTScore, sentence-transformers)
+.cache/
+models/
+
+# Temp files
+tmp/
+scratch/

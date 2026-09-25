@@ -1,0 +1,10 @@
+# Latency test matrix configuration
+latency:
+  concurrency_levels: [1, 5, 10, 25, 50]
+  prompt_lengths_tokens: [100, 500, 1000, 5000, 10000]
+  max_output_tokens: [256, 1024, 4096]
+  temperatures: [0.0, 0.3, 0.7, 1.0]
+  consistency_runs: 5
+  percentiles: [50, 75, 90, 95, 99]
+  warmup_requests: 2  # Requests to discard before timing
+  timeout_s: 120

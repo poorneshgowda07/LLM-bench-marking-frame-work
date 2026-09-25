@@ -1,0 +1,84 @@
+# Task category definitions
+tasks:
+  general_knowledge:
+    display_name: General Knowledge & Reasoning
+    dataset_file: data/datasets/general_knowledge.jsonl
+    metrics: [exact_match, f1, llm_judge, hallucination_rate]
+    weight_in_scoring: 0.20
+    task_types:
+      - factual_qa
+      - commonsense_reasoning
+      - logical_deduction
+      - math_arithmetic
+      - science
+
+  code_generation:
+    display_name: Code Generation & Debugging
+    dataset_file: data/datasets/code_generation.jsonl
+    metrics: [exact_match, bleu, llm_judge, code_execution]
+    weight_in_scoring: 0.20
+    task_types:
+      - python_generation
+      - javascript_generation
+      - sql_generation
+      - bug_fixing
+      - code_explanation
+      - unit_test_generation
+
+  conversational:
+    display_name: Conversational & Instruction Following
+    dataset_file: data/datasets/conversational.jsonl
+    metrics: [llm_judge, instruction_following_rate, rouge]
+    weight_in_scoring: 0.15
+    task_types:
+      - instruction_following
+      - persona_consistency
+      - refusal_accuracy
+      - tone_matching
+
+  summarization:
+    display_name: Summarization & Extraction
+    dataset_file: data/datasets/summarization.jsonl
+    metrics: [rouge, bleu, bertscore, llm_judge]
+    weight_in_scoring: 0.15
+    task_types:
+      - document_summarization
+      - key_extraction
+      - entity_extraction
+      - structured_extraction
+
+  indian_languages:
+    display_name: Indian Languages & Multilingual
+    dataset_file: data/datasets/indian_languages.jsonl
+    metrics: [bleu, rouge, bertscore, llm_judge]
+    weight_in_scoring: 0.10
+    task_types:
+      - hindi_generation
+      - kannada_understanding
+      - tamil_understanding
+      - english_hindi_translation
+      - hinglish_understanding
+
+  domain_voice_ai:
+    display_name: Domain-Specific (Voice AI / Customer Support)
+    dataset_file: data/datasets/domain_voice_ai.jsonl
+    metrics: [exact_match, f1, llm_judge, instruction_following_rate]
+    weight_in_scoring: 0.10
+    task_types:
+      - intent_classification
+      - slot_extraction
+      - query_resolution
+      - empathy_tone
+      - ambiguity_handling
+
+  adversarial:
+    display_name: Adversarial & Failure Testing
+    dataset_file: data/datasets/adversarial.jsonl
+    metrics: [hallucination_rate, refusal_accuracy, llm_judge]
+    weight_in_scoring: 0.10
+    task_types:
+      - hallucination_trap
+      - jailbreak_attempt
+      - ambiguous_prompt
+      - harmful_request
+      - factual_consistency_under_pressure

@@ -1,0 +1,7 @@
+model,accuracy_quality,f1,latency_speed,total_time,cost_efficiency,robustness_safety,multilingual,code_generation,context_window,total_score
+claude-sonnet-4,89.2,0.91,-0.6,2.8,-15.0,0.99,86.5,94.5,200000,94.5
+gpt-4o,88.5,0.89,-0.45,2.1,-12.5,0.98,87.2,92.1,128000,92.1
+deepseek-v3,85.0,0.86,-0.75,3.0,-1.37,0.9,82.0,89.5,128000,89.5
+gemini-2.5-pro,87.8,0.88,-0.85,3.2,-11.25,0.97,91.0,88.5,1000000,88.5
+llama-3.3-70b,82.1,0.83,-0.55,2.5,-0.88,0.92,71.5,81.0,131072,81.0
+gpt-4o-mini,78.5,0.79,-0.25,1.2,-0.75,0.95,75.0,79.2,128000,79.2

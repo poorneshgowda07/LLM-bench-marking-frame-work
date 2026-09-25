@@ -1,0 +1,51 @@
+# Weighted scoring configuration
+# Weights must sum to 1.0
+# Modify these to create custom leaderboards
+
+scoring:
+  weights:
+    accuracy_quality: 0.30
+    latency_speed: 0.20
+    cost_efficiency: 0.15
+    multilingual: 0.10
+    code_generation: 0.10
+    robustness_safety: 0.10
+    context_window: 0.05
+
+  leaderboards:
+    - id: overall
+      name: Overall Leaderboard
+      weights: default  # uses the weights above
+    - id: accuracy_only
+      name: Accuracy Only
+      weights:
+        accuracy_quality: 1.0
+    - id: speed_only
+      name: Speed (Latency) Only
+      weights:
+        latency_speed: 1.0
+    - id: cost_efficiency
+      name: Cost Efficiency
+      weights:
+        cost_efficiency: 1.0
+    - id: code_generation
+      name: Code Generation
+      weights:
+        code_generation: 1.0
+    - id: indian_languages
+      name: Indian Languages
+      weights:
+        multilingual: 1.0
+    - id: conversational
+      name: Conversational Quality
+      weights:
+        accuracy_quality: 0.5
+        robustness_safety: 0.5
+    - id: safety_robustness
+      name: Safety & Robustness
+      weights:
+        robustness_safety: 1.0
+
+  normalization:
+    method: min_max  # min_max or z_score
+    clip: true       # Clip to [0, 100]
